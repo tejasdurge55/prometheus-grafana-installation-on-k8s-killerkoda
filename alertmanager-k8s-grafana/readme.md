@@ -18,3 +18,26 @@ Grafana UI: user is `admin`
 Grafana UI: password is `prom-operator`
 
 Use `http://monitoring-kube-prometheus-prometheus.monitoring:9090/` as prometheus server url
+
+clone repo and go to day 4
+
+```
+git clone https://github.com/iam-veeramalla/observability-zero-to-hero.git
+cd observability-zero-to-hero/day-4
+kubectl create ns dev
+kubectl apply -k kubernetes-manifest/
+```
+
+convert app token to base64 and add it to email-secret.yaml
+```
+echo "1234 5678 9123" | base64
+```
+
+configure alertmanager by provideing your email by changing alertmanagerconfig.yml
+```
+kubectl apply -k alerts-alertmanager-servicemonitor-manifest/
+```
+
+To crash the application container, hit the following endpoint
+
+<<LOAD_BALANCER_DNS_NAME>>/crash
