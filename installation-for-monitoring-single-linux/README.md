@@ -23,9 +23,9 @@ vi prometheus.yml
 
 add =>
 ```
-- job_name: node_exporter
-  static_configs:
-    - targets: ["54.196.193.188:9100"]
+  - job_name: node_exporter
+    static_configs:
+      - targets: ["54.196.193.188:9100"]
 ```
 ```
 ./prometheus &
