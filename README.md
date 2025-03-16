@@ -21,7 +21,12 @@ k get svc
 ```
 siege -c 200 -t 10S http://www.google.com     =>or we can use M for minutes
 
-and grafana username = admin
+grafana username = admin
+
+grafana password can be found using the command:
+```
+kubectl get secret --namespace default grafana -o jsonpath="{.data.admin-password}" | base64 --decode ; echo
+```
 
 use this in url for source as prometheus always =>  http://prometheus-server-ext.default.svc.cluster.local
 
